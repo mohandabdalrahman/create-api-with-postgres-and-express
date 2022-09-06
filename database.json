@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "ecommerce",
+    "user": "postgres",
+    "password": "Honda"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": "ecommerce_test",
+    "user": "postgres",
+    "password": "Honda"
+  }
+}
