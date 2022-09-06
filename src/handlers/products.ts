@@ -29,13 +29,13 @@ const create = async (req: Request, res: Response) => {
       price: req.body.price,
     };
     const newProduct = await store.create(product);
-    return res.json(newProduct);
+    return res.status(201).json(newProduct);
   } catch (error) {
     return res.status(400).json(error);
   }
 };
 
-const product_routes = (app: express.Application) => {
+const product_routes = (app: express.Application):void => {
   app.get('/products', index);
   app.get('/products/:id', show);
   app.post('/products',verifyToken, create);

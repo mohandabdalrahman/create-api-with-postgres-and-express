@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import order_routes from './handlers/order';
+import order_routes from './handlers/orders';
 import product_routes from './handlers/products';
 import user_routes from './handlers/users';
 dotenv.config();
@@ -19,3 +19,6 @@ order_routes(app)
 app.listen(PORT, function () {
   console.log(`starting app on: ${PORT}`);
 });
+
+
+export default app;

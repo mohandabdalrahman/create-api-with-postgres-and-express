@@ -12,7 +12,7 @@ const create = async (req: Request, res: Response) => {
       status,
     };
     const newOrder = await store.create(order);
-    return res.json(newOrder);
+    return res.status(201).json(newOrder);
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -34,7 +34,7 @@ const addProduct = async (req: Request, res: Response) => {
     const { quantity, productId } = req.body;
     const addProduct = await store.addProduct(+quantity, +orderId, +productId);
     console.log('addProduct', addProduct);
-    return res.json(addProduct);
+    return res.status(201).json(addProduct);
   } catch (error) {
     return res.status(400).json(error);
   }
