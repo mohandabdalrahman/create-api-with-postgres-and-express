@@ -5,19 +5,19 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products                             ### Api Routes
-- Index                                   '/api/products' [GET]
-- Show                                    '/api/products/:id' [GET]
-- Create [token required]                  '/api/products'    [POST]
+- Index                                   '/products' [GET]
+- Show                                    '/products/:id' [GET]
+- Create [token required]                  '/products'    [POST]
 - [OPTIONAL] Top 5 most popular products
 - [OPTIONAL] Products by category (args: product category)
 
 #### Users                         ### Api Routes
-- Index [token required]            '/api/users' [GET]
-- Show [token required]              '/api/users/:id' [GET]
-- Create N[token required]            '/api/users' [POST]
+- Index [token required]            '/users' [GET]
+- Show [token required]              '/users/:id' [GET]
+- Create N[token required]            '/users' [POST]
 
 #### Orders                                                          ### Api Routes
-- Current Order by user (args: user id)[token required]                '/api/orders/users:userId'
+- Current Order by user (args: user id)[token required]                '/orders/users/:userId'
 - [OPTIONAL] Completed Orders by user (args: user id)[token required]
 
 ## Data Shapes
@@ -39,5 +39,5 @@ Table Users (id:integer, firstName:varchar,lastName:varchar, password:varchar)
 - quantity of each product in the order
 - user_id
 - status of order (active or complete)
-Table Orders (id:integer, product_id:integer[foreign key to products table],user_id:integer[foreign key to users table],order_status:varchar, quantity_product:integer)
-
+Table Orders (id:integer, product_id:integer[foreign key to products table],user_id:integer[foreign key to users table],order_status:varchar)
+TABLE order_items(quantity integer, order_id int REFERENCES orders(id), product_id int REFERENCES products(id),PRIMARY KEY (order_id, product_id));
