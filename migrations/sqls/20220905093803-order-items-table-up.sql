@@ -1,0 +1,1 @@
+CREATE TABLE order_items(quantity integer, order_id int REFERENCES orders(id), product_id int REFERENCES products(id),PRIMARY KEY (order_id, product_id));
